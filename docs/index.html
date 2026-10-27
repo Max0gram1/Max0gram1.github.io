@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="ru">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="theme-color" content="#2d1d1a" />
+    <meta name="description" content="СвояСвязь — переписки, аудиозвонки, группы и каналы." />
+    <title>СвояСвязь</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;700;800&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="icon" type="image/svg+xml" href="./favicon.svg" />
+    <link rel="apple-touch-icon" sizes="180x180" href="./apple-touch-icon.png" />
+    <link rel="manifest" href="./manifest.webmanifest" />
+    <link rel="stylesheet" href="./styles.css" />
+    <script>
+      try {
+        document.documentElement.dataset.theme = localStorage.getItem("svoysvyaz-theme") || "dark";
+      } catch {}
+    </script>
+  </head>
+  <body>
+    <div class="home-page">
+      <header class="home-header">
+        <a class="home-brand" href="./" aria-label="СвояСвязь — главная">
+          <img src="./app-icon-512.png" alt="" />
+          <span>СвояСвязь</span>
+        </a>
+        <button id="theme-toggle" class="theme-toggle" type="button" aria-label="Переключить тему" title="Переключить тему">
+          <svg class="theme-icon theme-icon--sun" aria-hidden="true" viewBox="0 0 24 24"><circle cx="12" cy="12" r="4"></circle><path d="M12 2v2m0 16v2M4.93 4.93l1.42 1.42m11.3 11.3 1.42 1.42M2 12h2m16 0h2M4.93 19.07l1.42-1.42m11.3-11.3 1.42-1.42"></path></svg>
+          <svg class="theme-icon theme-icon--moon" aria-hidden="true" viewBox="0 0 24 24"><path d="M20.2 15.1A8.8 8.8 0 0 1 8.9 3.8 8.9 8.9 0 1 0 20.2 15.1Z"></path></svg>
+        </button>
+      </header>
+
+      <main class="home-main">
+        <section class="home-intro">
+          <div class="home-copy">
+            <p class="eyebrow">Только важное. Только по делу.</p>
+            <h1>Говорите голосом.<br />Пишите текстом.</h1>
+            <p class="home-lead">СвояСвязь — мессенджер для личных разговоров и общения в сообществах. Без видеозвонков: только аудио и переписки.</p>
+            <a class="primary-button home-cta" href="https://web.ownconnect.ru">Открыть веб-клиент</a>
+          </div>
+          <div class="home-art" aria-label="Логотип СвояСвязь">
+            <img src="./app-icon-512.png" alt="Логотип СвояСвязь: белый пузырь сообщения на оранжевом фоне" />
+            <span class="home-art__label">На связи</span>
+          </div>
+        </section>
+
+        <section class="home-features" aria-label="Возможности СвояСвязь">
+          <article class="home-feature">
+            <span class="home-feature__mark" aria-hidden="true">01</span>
+            <h2>Переписки</h2>
+            <p>Личные сообщения и общение в одном месте.</p>
+          </article>
+          <article class="home-feature">
+            <span class="home-feature__mark" aria-hidden="true">02</span>
+            <h2>Аудиозвонки</h2>
+            <p>Звоните голосом прямо из чата.</p>
+          </article>
+          <article class="home-feature">
+            <span class="home-feature__mark" aria-hidden="true">03</span>
+            <h2>Поиск по @логину</h2>
+            <p>Находите людей по имени пользователя.</p>
+          </article>
+          <article class="home-feature">
+            <span class="home-feature__mark" aria-hidden="true">04</span>
+            <h2>Группы и каналы</h2>
+            <p>Создавайте пространства для своих тем.</p>
+          </article>
+          <article class="home-feature">
+            <span class="home-feature__mark" aria-hidden="true">05</span>
+            <h2>Журнал вызовов</h2>
+            <p>История звонков всегда под рукой.</p>
+          </article>
+        </section>
+      </main>
+
+      <footer class="home-footer">2026 СвояСвязь - все права защищены.</footer>
+    </div>
+
+    <script>
+      const themeToggle = document.getElementById("theme-toggle");
+
+      function applyTheme(theme, persist = true) {
+        const nextTheme = theme === "light" ? "light" : "dark";
+        document.documentElement.dataset.theme = nextTheme;
+        if (persist) {
+          try {
+            localStorage.setItem("svoysvyaz-theme", nextTheme);
+          } catch {}
+        }
+        const label = nextTheme === "dark" ? "Включить светлую тему" : "Включить тёмную тему";
+        themeToggle.setAttribute("aria-label", label);
+        themeToggle.title = label;
+      }
+
+      themeToggle.addEventListener("click", () => {
+        applyTheme(document.documentElement.dataset.theme === "dark" ? "light" : "dark");
+      });
+      applyTheme(document.documentElement.dataset.theme, false);
+    </script>
+  </body>
+</html>
