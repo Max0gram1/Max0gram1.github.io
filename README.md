@@ -1,5 +1,5 @@
 # СвояСвязь
 
-**[Открыть главную](https://ownconnection.github.io/home)** · **[Открыть веб-клиент](https://web.ownconnect.ru)**
+**[Открыть главную](https://ownconnect.ru)** · **[Открыть веб-клиент](https://web.ownconnect.ru)**
 
 Репозиторий содержит статическую главную страницу и локальную серверную версию мессенджера на `Node.js + Socket.IO`.
